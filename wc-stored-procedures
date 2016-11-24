@@ -4,7 +4,7 @@
 USE wateringcan;
 
 
-DELIMETER //
+DELIMITER //
 
 #Add a device
 CREATE PROCEDURE IF NOT EXISTS addDevice (IN deviceid VARCHAR(3), IN devicename VARCHAR(20), IN devicekey VARCHAR(20), OUT results INT)
@@ -22,4 +22,4 @@ END;
 #add information to the external temperature table
 
 
-DELIMETER;
+DELIMITER;
