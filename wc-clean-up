@@ -1,0 +1,3 @@
+#File to configure mysql db for the watering can application
+DROP DATABASE wateringcan;
+DROP USER 'wcuser'@'localhost';

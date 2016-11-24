@@ -1,0 +1,25 @@
+#Stored procedures for the adding data to the watering can db
+
+
+USE wateringcan;
+
+
+DELIMETER //
+
+#Add a device
+CREATE PROCEDURE IF NOT EXISTS addDevice (IN deviceid VARCHAR(3), IN devicename VARCHAR(20), IN devicekey VARCHAR(20), OUT results INT)
+BEGIN
+	IF EXISTS(SELECT * FROM devices WHERE id = IN_deviceid)
+		SET return = -1;
+	ELSE
+		INSERT INTO devices(id, name, key) VALUES (in_deviceid, in_devicename, in_devicekey);
+	END IF;
+END;	
+#add information to the soil-condition table
+
+#add informaiton to the internal-temperature table
+
+#add information to the external temperature table
+
+
+DELIMETER;

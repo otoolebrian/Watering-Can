@@ -1,0 +1,5 @@
+#File to configure mysql db for the watering can application
+CREATE DATABASE wateringcan;
+CREATE USER 'wcuser'@'localhost' IDENTIFIED BY 'wateringcan';
+GRANT ALL PRIVILEGES ON wateringcan.* TO 'wcuser'@'localhost';
+FLUSH PRIVILEGES;
