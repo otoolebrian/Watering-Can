@@ -17,7 +17,7 @@ def network_command(recvString):
 
 		returnVal = 'OK'	
 	else:
-		returnVal = 'commands are addevice, rectemp, recoil'
+		returnVal = 'commands are addevice, rectemp, recsoil'
 	
 	return returnVal
 
