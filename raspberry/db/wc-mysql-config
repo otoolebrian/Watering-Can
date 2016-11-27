@@ -1,6 +1,6 @@
 #Add tables to the wateringcan mysql db 
 USE wateringcan;
 CREATE TABLE IF NOT EXISTS devices (deviceid VARCHAR(3), devicename VARCHAR(20), devicekey VARCHAR(20));
-CREATE TABLE IF NOT EXISTS soilcondition (timestamp VARCHAR(20), soil VARCHAR(20), deviceid VARCHAR(3));
+CREATE TABLE IF NOT EXISTS soilcondition (timestamp VARCHAR(20), soil VARCHAR(4), deviceid VARCHAR(3));
 CREATE TABLE IF NOT EXISTS temperature (timestamp VARCHAR(20), inthumid VARCHAR(20), exttemp VARCHAR(20), inttemp VARCHAR(20), deviceid VARCHAR(3));
 

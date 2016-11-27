@@ -8,17 +8,40 @@ DELIMITER //
 
 #Create the stored routines for writing to the database
 
+DROP PROCEDURE IF EXISTS adddevice;
+
 CREATE PROCEDURE adddevice (IN devid VARCHAR(3), IN dn VARCHAR(20), IN dk VARCHAR(20))
 BEGIN
 	INSERT INTO devices (deviceid, devicename, devicekey) VALUES (devid, dn, dk);
 END
 //
 
-#add information to the soil-condition table
+#add information to the soilcondition table
+#The procedure takes in the following arguments - sl: soil humidity 
+#devid: deviceid
+#The function will populate the current time using now()
 
-#add informaiton to the internal-temperature table
 
-#add information to the external temperature table
+DROP PROCEDURE IF EXISTS writecondition;
+
+CREATE PROCEDURE writecondition (IN sl VARCHAR(4), IN devid VARCHAR(3))
+BEGIN
+	INSERT INTO soilcondition (timestamp, soil, deviceid) VALUES (now(), sl);
+END
+//
+
+#add informaiton to the temperature table
+#The procedure takes in the following arguments - ihum: Internal Humidity
+#etemp: external temperature, itemp: Internal Temperature & devid: Device ID
+#The function will populate the current time using now()
 
 
-DELIMITER;
+DROP PROCEDURE IF EXISTS writetemp;
+
+CREATE PROCEDURE writetemp (IN ihum VARCHAR(20), IN etemp VARCHAR(20), IN itemp VARCHAR(20), IN devid VARCHAR(3))
+BEGIN
+	INSERT INTO temperature (timestamp, inthum, exttemp, inttemp, deviceid) VALUES (now(), ihum, etemp, itemp, devid);
+END
+//
+
+DELIMITER ;
