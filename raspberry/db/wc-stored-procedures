@@ -26,7 +26,7 @@ DROP PROCEDURE IF EXISTS writecondition;
 
 CREATE PROCEDURE writecondition (IN sl VARCHAR(4), IN devid VARCHAR(3))
 BEGIN
-	INSERT INTO soilcondition (timestamp, soil, deviceid) VALUES (now(), sl);
+	INSERT INTO soilcondition (timestamp, soil, deviceid) VALUES (now(), sl, devid);
 END
 //
 
