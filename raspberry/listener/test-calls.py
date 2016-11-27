@@ -1,14 +1,16 @@
-import MySQLdb 
-conn = MySQLdb.connect(host='localhost',db='wateringcan',user='root',passwd='password')
+import mysql.connector 
 
-arg1 = "id";
-arg2 = "name";
-arg3 = "key";
+conn  = mysql.connector.connect(user='root', password='password', host='127.0.0.1', database='wateringcan')
+
+arg1 = '12';
+arg2 = 'name';
+arg3 = 'key';
 
 c=conn.cursor();
-c.callproc('adddevice', (arg1, arg2, arg3))
+print c.callproc('adddevice', (arg1, arg2, arg3))
+print c.callproc('wateringcan.writecondition', (arg1, arg2))
+print c.fetchwarnings()
 
-print c.status()
-
-c.execute("SELECT * from devices")
-print c.fetchone()
+conn.commit()
+c.close()
+conn.close()
