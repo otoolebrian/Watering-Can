@@ -2,19 +2,5 @@
 USE wateringcan;
 CREATE TABLE IF NOT EXISTS devices (deviceid VARCHAR(3), devicename VARCHAR(20), devicekey VARCHAR(20));
 CREATE TABLE IF NOT EXISTS soilcondition (timestamp VARCHAR(20), soil VARCHAR(20), deviceid VARCHAR(3));
-CREATE TABLE IF NOT EXISTS internaltemperature (timestamp VARCHAR(20), inttemp VARCHAR(20), deviceid VARCHAR(3));
-CREATE TABLE IF NOT EXISTS externaltemperature (timestamp VARCHAR(20), exttemp VARCHAR(20), deviceid VARCHAR(3));
+CREATE TABLE IF NOT EXISTS temperature (timestamp VARCHAR(20), inthumid VARCHAR(20), exttemp VARCHAR(20), inttemp VARCHAR(20), deviceid VARCHAR(3));
 
-#Create the stored routines for writing to the database
-
-DELIMITER //
-
-DROP PROCEDURE IF EXISTS adddevice;
-CREATE PROCEDURE adddevice (IN devid VARCHAR(3), IN dn VARCHAR(20), IN dk VARCHAR(20))
-BEGIN
-	INSERT INTO devices (deviceid, devicename, devicekey) VALUES (devid, dn, dk);
-END
-//
-
-
-DELIMITER ;

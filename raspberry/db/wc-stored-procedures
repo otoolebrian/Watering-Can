@@ -6,15 +6,14 @@ USE wateringcan;
 
 DELIMITER //
 
-#Add a device
-CREATE PROCEDURE IF NOT EXISTS addDevice (IN deviceid VARCHAR(3), IN devicename VARCHAR(20), IN devicekey VARCHAR(20), OUT results INT)
+#Create the stored routines for writing to the database
+
+CREATE PROCEDURE adddevice (IN devid VARCHAR(3), IN dn VARCHAR(20), IN dk VARCHAR(20))
 BEGIN
-	IF EXISTS(SELECT * FROM devices WHERE id = IN_deviceid)
-		SET return = -1;
-	ELSE
-		INSERT INTO devices(id, name, key) VALUES (in_deviceid, in_devicename, in_devicekey);
-	END IF;
-END;	
+	INSERT INTO devices (deviceid, devicename, devicekey) VALUES (devid, dn, dk);
+END
+//
+
 #add information to the soil-condition table
 
 #add informaiton to the internal-temperature table
