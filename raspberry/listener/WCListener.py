@@ -10,14 +10,20 @@ def network_command(recvString):
 	#Check which command was recieved, if not recognised return an error
 	if(recvComm[0].lower() == "adddevice"):
 		returnVal = 'OK'	
-	elif(recvComm[0].lower() == "rectemp"):
+	elif(recvComm[0].lower() == "rectemp"): //Record the temperature
 
 		returnVal = 'OK'	
-	elif(recvComm[0].lower() == "recsoil"):
+	elif(recvComm[0].lower() == "recsoil"): //Record the soil condition
+
+		returnVal = 'OK'	
+	elif(recvComm[0].lower() == "rechum"): //Record the humidity
+
+		returnVal = 'OK'	
+	elif(recvComm[0].lower() == "recsth"): //Record soil, temp and humidity
 
 		returnVal = 'OK'	
 	else:
-		returnVal = 'commands are addevice, rectemp, recsoil'
+		returnVal = 'commands are addevice, rectemp, recsoil, recsth'
 	
 	return returnVal
 
